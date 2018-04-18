@@ -1,5 +1,9 @@
-<h4> Click event </h4>
-<button (click)="clickMe()">Click me</button> <label>{{clicked}}</label>
+<h3> Angular Foems</h3>
+<nav>
+    <a routerLink="/userinput">User Input</a>
+    <a routerLink="/templatedriven">Template Driven</a>
+</nav>
 
-<h4> Keyup event</h4>
-<input (keyup)="onKeyUp($event)">  <label>{{keyUpVal}}</label>
+<router-outlet></router-outlet>
+
+

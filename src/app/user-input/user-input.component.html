@@ -1,0 +1,18 @@
+<h4> Click event </h4>
+<button (click)="clickMe()">Click me</button> <label>{{clicked}}</label>
+
+<h4> Keyup event</h4>
+<input (keyup)="onKeyUp($event)">  <label>{{keyUpVal}}</label>
+
+<h4>Template reference variable</h4>
+<input #box (keyup)="0"> <label>{{box.value}}</label> 
+ <!--  put identifier with # and use that to get value -->
+ <!-- This wont work until we bind it to event  -->
+
+
+ <h4> Add Heroes</h4>
+ <input #hero (keyup.enter)="addHero(hero.value)" (blur)="addHero(hero.value); hero.value = ''">
+ <button (click)="addHero(hero.value)">Add</button>
+ <ul *ngFor="let hero of heroes">
+     <li>{{hero}}</li>
+ </ul>
