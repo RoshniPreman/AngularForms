@@ -1,3 +1,30 @@
-<p>
-  template-driven works!
-</p>
+<div class="container">
+
+    <!--Each input element has a name property that is required by Angular forms -->
+       <!-- to register the control with the form.-->
+
+  <h1> Hero Forms </h1>
+  <form #heroForm="ngForm">
+    <div class="form-group">
+      <label name="name">Name</label>
+      <input type="text" [(ngModel)]="model.name" name="name" id="name" required #name="ngModel">
+      <div [hidden]="name.valid || name.pristine"
+     class="alert alert-danger">
+  Name is required
+</div>
+    </div>
+    <div class="form-group">
+        <label name="alterEgo">AlterEgo</label>
+        <input type="text" [(ngModel)]="model.alterEgo" name="alterEgo" id="alterEgo">
+    </div>
+    <div class="form-group">
+      <label name="power">Powers</label>
+      <select class="form-control" id="power" name="power" [(ngModel)]="model.power" required>
+          <option *ngFor="let pow of powers">{{pow}}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success"
+        [disabled]="!heroForm.form.valid"
+        (click)="heroForm.reset()">Submit</button>
+  </form>
+</div>
